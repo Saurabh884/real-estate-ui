@@ -1,101 +1,347 @@
-import Image from "next/image";
+"use client";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const { register, handleSubmit, reset } = useForm();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+  const onSubmit = (data) => {
+    alert(`Thank you, ${data.name}! We will contact you soon.`);
+    reset();
+  };
+
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+
+  return (
+    <div className="min-h-screen bg-gray-100">
+      {/* Navigation Section */}
+      <nav className=" text-white shadow-md px-6 py-4">
+        <div className="flex items-center justify-between">
+          {/* Logo Section */}
+          <div className="text-xl font-bold z-20">
+            <img
+              src="/prestige_logo.svg"
+              alt="Prestige Logo"
+              className="h-20 md:h-24 shadow-lg"
             />
-            Deploy now
+          </div>
+
+          {/* Navigation Links */}
+          <div className="hidden md:flex space-x-6">
+            <a
+              href="#about"
+              className="text-xl text-black hover:text-[#846d47]"
+            >
+              About
+            </a>
+            <a
+              href="#residential"
+              className="text-xl text-black hover:text-[#846d47]"
+            >
+              Residential
+            </a>
+            <a
+              href="#commercials"
+              className="text-xl text-black hover:text-[#846d47]"
+            >
+              Commercials
+            </a>
+            <a
+              href="#hospitality"
+              className="text-xl text-black hover:text-[#846d47]"
+            >
+              Hospitality
+            </a>
+            <a
+              href="#blogs"
+              className="text-xl text-black hover:text-[#846d47]"
+            >
+              Blogs
+            </a>
+          </div>
+
+          {/* Hamburger Menu for Mobile View */}
+          <div className="md:hidden flex items-center">
+            <button
+              onClick={toggleMenu}
+              className="text-black hover:text-[#846d47]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                {isMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <div
+          className={`md:hidden ${
+            isMenuOpen ? "block" : "hidden"
+          } mt-4 space-y-4 overflow-x-auto`}
+        >
+          <a
+            href="#about"
+            className="text-black hover:text-[#846d47] block text-xl"
+          >
+            About
           </a>
           <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#residential"
+            className="text-black hover:text-[#846d47] block text-xl"
           >
-            Read our docs
+            Residential
+          </a>
+          <a
+            href="#commercials"
+            className="text-black hover:text-[#846d47] block text-xl"
+          >
+            Commercials
+          </a>
+          <a
+            href="#hospitality"
+            className=" text-black hover:text-[#846d47] block text-xl"
+          >
+            Hospitality
+          </a>
+          <a
+            href="#blogs"
+            className="text-black hover:text-[#846d47] block text-xl"
+          >
+            Blogs
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      </nav>
+
+      {/* Hero Section */}
+      <section className="relative bg-[url('/hero-bg.jpg')] bg-cover bg-center h-screen">
+        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+        <div className="relative z-10 flex items-center justify-center h-full text-center">
+          <div className="text-white">
+            <h1 className="text-4xl md:text-6xl font-bold">
+              Discover Your Dream Home in Bangalore
+            </h1>
+            <p className="mt-4 text-lg md:text-xl">
+              Premium real estate project with world-class amenities by Prestige Group.
+            </p>
+            <a
+              href="#contact"
+              className="mt-6 inline-block bg-white text-[#846d47] font-semibold py-3 px-6 rounded-lg hover:bg-black hover:text-white"
+            >
+              Get Details
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Project Details Section */}
+      <section className="py-16 px-6 md:px-12 bg-white">
+        <h2 className="text-3xl font-bold text-center">Project Details</h2>
+        <p className="mt-4 text-gray-600 text-center max-w-2xl mx-auto">
+          This project features luxury apartments with premium facilities and
+          modern architecture located in the heart of Bangalore.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
+          <div className="text-center">
+            <h3 className="text-xl font-bold">Location</h3>
+            <p className="text-gray-500">Bangalore, India</p>
+          </div>
+          <div className="text-center">
+            <h3 className="text-xl font-bold">Units</h3>
+            <p className="text-gray-500">2 & 3 BHK Apartments</p>
+          </div>
+          <div className="text-center">
+            <h3 className="text-xl font-bold">Price</h3>
+            <p className="text-gray-500">Starting at ₹80 Lakhs</p>
+          </div>
+          <div className="text-center">
+            <h3 className="text-xl font-bold">Possession</h3>
+            <p className="text-gray-500">Dec 2025</p>
+          </div>
+        </div>
+
+
+        {/* Embed Google Map */}
+        <div className="mt-8">
+          <h3 className="text-xl font-bold text-center">Project Location</h3>
+          <div className="mt-4 flex justify-center">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.083489047344!2d77.59456231527625!3d12.971598690854523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670f5d8a9ff%3A0x5c59c7dffb58f2d5!2sBangalore%2C%20Karnataka%2C%20India!5e0!3m2!1sen!2sus!4v1693737742410!5m2!1sen!2sus"
+              width="600"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="rounded-lg shadow-md"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      
+
+      {/* Amenities Section */}
+      <section className="py-16 px-6 md:px-12 bg-gray-50">
+        <h2 className="text-3xl font-bold text-center">Amenities</h2>
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="bg-white p-6 rounded-lg shadow-md text-center">
+            <h3 className="text-xl font-bold">Swimming Pool</h3>
+            <p className="text-gray-500 mt-2">
+              A luxurious pool for relaxation.
+            </p>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-md text-center">
+            <h3 className="text-xl font-bold">Gymnasium</h3>
+            <p className="text-gray-500 mt-2">
+              State-of-the-art fitness center.
+            </p>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-md text-center">
+            <h3 className="text-xl font-bold">Clubhouse</h3>
+            <p className="text-gray-500 mt-2">
+              A community hub for social gatherings.
+            </p>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-md text-center">
+            <h3 className="text-xl font-bold">24/7 Security</h3>
+            <p className="text-gray-500 mt-2">Ensuring safety at all times.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form */}
+      <section
+        id="contact"
+        className="py-16 px-6 md:px-12 bg-[#846d47] text-white"
+      >
+        <h2 className="text-3xl font-bold text-center">Get in Touch</h2>
+        <p className="mt-4 text-center">
+          Fill out the form below, and our team will get back to you shortly.
+        </p>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="mt-8 max-w-xl mx-auto space-y-4"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+          <input
+            {...register("name", { required: true })}
+            type="text"
+            placeholder="Your Name"
+            className="w-full p-3 rounded-md text-gray-700"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+          <input
+            {...register("email", { required: true })}
+            type="email"
+            placeholder="Your Email"
+            className="w-full p-3 rounded-md text-gray-700"
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
+          <input
+            {...register("phone", { required: true })}
+            type="tel"
+            placeholder="Your Phone Number"
+            className="w-full p-3 rounded-md text-gray-700"
           />
-          Go to nextjs.org →
+          <button
+            type="submit"
+            className="w-full bg-white text-[#846d47] font-bold py-3 hover:bg-black hover:text-white rounded-md"
+          >
+            Submit
+          </button>
+        </form>
+      </section>
+
+      {/* Footer */}
+      {/* <footer className="py-6 bg-black text-white text-center">
+        <p>© {new Date().getFullYear()} Real Estate Project. All Rights Reserved.</p>
+      </footer> */}
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-10">
+  <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-between">
+    <div className="w-full sm:w-1/3 mb-8 sm:mb-0">
+      <h4 className="text-xl font-semibold mb-4 uppercase">Reach Us</h4>
+      <ul className="space-y-4 text-sm">
+        <li>
+          <span className="block font-medium">Corporate Address:</span>
+          <a href="https://maps.app.goo.gl/3BMxbJ8ae54hP64UA" target="_blank" rel="nofollow" className="text-gray-300 hover:text-gray-100 transition duration-300">
+            Prestige Falcon Towers, Brunton Road, Bengaluru - 560025, Karnataka, India
+          </a>
+        </li>
+        <li>
+          <span className="block font-medium">For sales enquiries:</span>
+          <a href="tel:18003130080" className="text-gray-300 hover:text-gray-100 transition duration-300">1800 313 0080</a>
+        </li>
+        <li>
+          <span className="block font-medium">For other enquiries:</span>
+          <a href="tel:+918025591080" className="text-gray-300 hover:text-gray-100 transition duration-300">+91 80 2559 1080</a>
+        </li>
+        <li>
+          <span className="block font-medium">Email:</span>
+          <a href="mailto:properties@prestigeconstructions.com" className="text-gray-300 hover:text-gray-100 transition duration-300">properties@prestigeconstructions.com</a>
+        </li>
+      </ul>
+    </div>
+
+    <div className="w-full sm:w-1/3 mb-8 sm:mb-0">
+      <h4 className="text-xl font-semibold mb-4 uppercase">Quick Links</h4>
+      <ul className="space-y-4 text-sm">
+        <li><a href="https://www.prestigeconstructions.com/about-us" className="text-gray-300 hover:text-gray-100 transition duration-300">About Us</a></li>
+        <li><a href="https://www.prestigeconstructions.com/residential-projects" className="text-gray-300 hover:text-gray-100 transition duration-300">Residential</a></li>
+        <li><a href="https://www.prestigeconstructions.com/commercial-projects" className="text-gray-300 hover:text-gray-100 transition duration-300">Commercial</a></li>
+        <li><a href="https://www.prestigeconstructions.com/videos" className="text-gray-300 hover:text-gray-100 transition duration-300">Videos</a></li>
+        <li><a href="https://www.prestigeconstructions.com/blog" className="text-gray-300 hover:text-gray-100 transition duration-300">Blogs</a></li>
+        <li><a href="https://www.prestigeconstructions.com/faq" className="text-gray-300 hover:text-gray-100 transition duration-300">FAQs</a></li>
+        <li><a href="https://www.prestigeconstructions.com/awards" className="text-gray-300 hover:text-gray-100 transition duration-300">Awards</a></li>
+      </ul>
+    </div>
+
+    <div className="w-full sm:w-1/3">
+      <h4 className="text-xl font-semibold mb-4 uppercase">Follow Us</h4>
+      <div className="flex space-x-4">
+        <a href="https://www.facebook.com/Prestige.group" target="_blank" rel="nofollow" className="text-white hover:text-gray-400 transition duration-300">
+          <i className="fab fa-facebook fa-2x"></i>
         </a>
-      </footer>
+        <a href="https://www.instagram.com/prestigeconstructions" target="_blank" rel="nofollow" className="text-white hover:text-gray-400 transition duration-300">
+          <i className="fab fa-instagram fa-2x"></i>
+        </a>
+        <a href="https://twitter.com/prestigegroup" target="_blank" rel="nofollow" className="text-white hover:text-gray-400 transition duration-300">
+          <i className="fab fa-twitter fa-2x"></i>
+        </a>
+        <a href="https://www.linkedin.com/company/prestige-group-bangalore" target="_blank" rel="nofollow" className="text-white hover:text-gray-400 transition duration-300">
+          <i className="fab fa-linkedin fa-2x"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+      <div className="py-6 bg-gray-900 text-white text-center">
+          {" "}
+          <p>
+            © {new Date().getFullYear()} Real Estate Project. All Rights
+            Reserved.
+          </p>
+        </div>
     </div>
   );
 }
