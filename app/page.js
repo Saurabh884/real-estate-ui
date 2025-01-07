@@ -2,10 +2,34 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import Accordion from "./components/common/accordian";
 
 export default function Home() {
   const { register, handleSubmit, reset } = useForm();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const accordionData = [
+    {
+      title: "Location",
+      content:
+        "This project is located in the prime area of Bangalore, offering easy access to major landmarks and transport hubs.",
+    },
+    {
+      title: "Units",
+      content:
+        "We offer luxurious 2 & 3 BHK apartments designed with modern aesthetics and functionality to provide comfort.",
+    },
+    {
+      title: "Price",
+      content:
+        "The pricing for this exclusive project starts at ₹80 Lakhs, providing excellent value for the location and amenities.",
+    },
+    {
+      title: "Possession",
+      content:
+        "The possession of these premium homes will be handed over by December 2025, giving you ample time to plan.",
+    },
+  ];
 
   const onSubmit = (data) => {
     alert(`Thank you, ${data.name}! We will contact you soon.`);
@@ -202,6 +226,15 @@ export default function Home() {
   </div>
 </div>
 
+      </section>
+
+      <section className="py-16 px-6 md:px-12 bg-gray-50">
+        <h2 className="text-3xl font-bold text-center">Specifications</h2>
+        <div className="mt-8">
+          {accordionData.map((item, index) => (
+            <Accordion key={index} title={item.title} content={item.content} />
+          ))}
+        </div>
       </section>
 
       
