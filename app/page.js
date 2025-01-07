@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 export default function Home() {
   const { register, handleSubmit, reset } = useForm();
@@ -155,7 +156,7 @@ export default function Home() {
       </section>
 
       {/* Project Details Section */}
-      <section className="py-16 px-6 md:px-12 bg-white">
+      <section className="py-16 px-6 md:px-12 shadow-md bg-gray-50">
         <h2 className="text-3xl font-bold text-center">Project Details</h2>
         <p className="mt-4 text-gray-600 text-center max-w-2xl mx-auto">
           This project features luxury apartments with premium facilities and
