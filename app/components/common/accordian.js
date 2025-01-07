@@ -8,10 +8,10 @@ const Accordion = ({ title, content }) => {
   };
 
   return (
-    <div className=" rounded mb-[0.5] border">
+    <div className=" rounded mb-[0.25]">
       <div
         onClick={toggleAccordion}
-        className="flex justify-between items-center cursor-pointer py-4 px-6 bg-gray-200"
+        className="flex justify-between items-center cursor-pointer py-4 px-6 bg-gray-100"
       >
         <h3 className="text-xl font-semibold">{title}</h3>
         <i
