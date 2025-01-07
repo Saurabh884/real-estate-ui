@@ -183,20 +183,21 @@ export default function Home() {
 
         {/* Embed Google Map */}
         <div className="mt-8">
-          <h3 className="text-xl font-bold text-center">Project Location</h3>
-          <div className="mt-4 flex justify-center">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.083489047344!2d77.59456231527625!3d12.971598690854523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670f5d8a9ff%3A0x5c59c7dffb58f2d5!2sBangalore%2C%20Karnataka%2C%20India!5e0!3m2!1sen!2sus!4v1693737742410!5m2!1sen!2sus"
-              width="600"
-              height="450"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="rounded-lg shadow-md"
-            ></iframe>
-          </div>
-        </div>
+  <h3 className="text-xl font-bold text-center">Project Location</h3>
+  <div className="mt-4 flex justify-center">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1943.977813132166!2d77.750849!3d12.97469!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae0e075e402bb3%3A0xd81374e18fa7a9a7!2sPrestige%20White%20Meadows!5e0!3m2!1sen!2sus!4v1736242543318!5m2!1sen!2sus"
+      width="600"
+      height="450"
+      style={{ border: 0 }}
+      allowFullScreen=""
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+      className="rounded-lg shadow-md"
+    ></iframe>
+  </div>
+</div>
+
       </section>
 
       
