@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Navigation Section */}
-      <nav className=" text-white shadow-md px-6 py-4">
+      <nav className="fixed top-0 left-0 w-full bg-white bg-opacity-50 backdrop-blur-md shadow-md px-6 py-3 z-20">
         <div className="flex items-center justify-between">
           {/* Logo Section */}
           <div className="text-xl font-bold z-20">
@@ -66,7 +66,7 @@ export default function Home() {
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleMenu}
-              className="text-black hover:text-[#846d47]"
+              className="text-black"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
