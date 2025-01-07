@@ -208,32 +208,37 @@ export default function Home() {
 
       {/* Amenities Section */}
       <section className="py-16 px-6 md:px-12 bg-gray-50">
-        <h2 className="text-3xl font-bold text-center">Amenities</h2>
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="bg-white p-6 rounded-lg shadow-md text-center">
-            <h3 className="text-xl font-bold">Swimming Pool</h3>
-            <p className="text-gray-500 mt-2">
-              A luxurious pool for relaxation.
-            </p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow-md text-center">
-            <h3 className="text-xl font-bold">Gymnasium</h3>
-            <p className="text-gray-500 mt-2">
-              State-of-the-art fitness center.
-            </p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow-md text-center">
-            <h3 className="text-xl font-bold">Clubhouse</h3>
-            <p className="text-gray-500 mt-2">
-              A community hub for social gatherings.
-            </p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow-md text-center">
-            <h3 className="text-xl font-bold">24/7 Security</h3>
-            <p className="text-gray-500 mt-2">Ensuring safety at all times.</p>
-          </div>
-        </div>
-      </section>
+  <h2 className="text-3xl font-bold text-center">Amenities</h2>
+  <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div className="bg-white p-6 rounded-lg shadow-md text-center">
+      <i className="fas fa-swimmer text-3xl text-[#846d47]"></i>
+      <h3 className="text-xl font-bold mt-4">Swimming Pool</h3>
+      <p className="text-gray-500 mt-2">
+        A luxurious pool for relaxation.
+      </p>
+    </div>
+    <div className="bg-white p-6 rounded-lg shadow-md text-center">
+      <i className="fas fa-dumbbell text-3xl text-[#846d47]"></i>
+      <h3 className="text-xl font-bold mt-4">Gymnasium</h3>
+      <p className="text-gray-500 mt-2">
+        State-of-the-art fitness center.
+      </p>
+    </div>
+    <div className="bg-white p-6 rounded-lg shadow-md text-center">
+      <i className="fas fa-users text-3xl text-[#846d47]"></i>
+      <h3 className="text-xl font-bold mt-4">Clubhouse</h3>
+      <p className="text-gray-500 mt-2">
+        A community hub for social gatherings.
+      </p>
+    </div>
+    <div className="bg-white p-6 rounded-lg shadow-md text-center">
+      <i className="fas fa-shield-alt text-3xl text-[#846d47]"></i>
+      <h3 className="text-xl font-bold mt-4">24/7 Security</h3>
+      <p className="text-gray-500 mt-2">Ensuring safety at all times.</p>
+    </div>
+  </div>
+</section>
+
 
       {/* Contact Form */}
       <section
