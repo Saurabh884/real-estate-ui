@@ -157,29 +157,32 @@ export default function Home() {
 
       {/* Project Details Section */}
       <section className="py-16 px-6 md:px-12 shadow-md bg-gray-50">
-        <h2 className="text-3xl font-bold text-center">Project Details</h2>
-        <p className="mt-4 text-gray-600 text-center max-w-2xl mx-auto">
-          This project features luxury apartments with premium facilities and
-          modern architecture located in the heart of Bangalore.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
-          <div className="text-center">
-            <h3 className="text-xl font-bold">Location</h3>
-            <p className="text-gray-500">Bangalore, India</p>
-          </div>
-          <div className="text-center">
-            <h3 className="text-xl font-bold">Units</h3>
-            <p className="text-gray-500">2 & 3 BHK Apartments</p>
-          </div>
-          <div className="text-center">
-            <h3 className="text-xl font-bold">Price</h3>
-            <p className="text-gray-500">Starting at ₹80 Lakhs</p>
-          </div>
-          <div className="text-center">
-            <h3 className="text-xl font-bold">Possession</h3>
-            <p className="text-gray-500">Dec 2025</p>
-          </div>
-        </div>
+      <h2 className="text-3xl font-bold text-center">Project Details</h2>
+  <p className="mt-4 text-gray-600 text-center max-w-2xl mx-auto">
+    This project features luxury apartments with premium facilities and modern architecture located in the heart of Bangalore.
+  </p>
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
+    <div className="bg-white p-6 rounded-lg shadow-md text-center">
+      <i className="fas fa-map-marker-alt text-3xl text-[#846d47]"></i>
+      <h3 className="text-xl font-bold mt-4">Location</h3>
+      <p className="text-gray-500">Bangalore, India</p>
+    </div>
+    <div className="bg-white p-6 rounded-lg shadow-md text-center">
+      <i className="fas fa-cogs text-3xl text-[#846d47]"></i>
+      <h3 className="text-xl font-bold mt-4">Units</h3>
+      <p className="text-gray-500">2 & 3 BHK Apartments</p>
+    </div>
+    <div className="bg-white p-6 rounded-lg shadow-md text-center">
+      <i className="fas fa-indian-rupee-sign text-3xl text-[#846d47]"></i>
+      <h3 className="text-xl font-bold mt-4">Price</h3>
+      <p className="text-gray-500">Starting at ₹80 Lakhs</p>
+    </div>
+    <div className="bg-white p-6 rounded-lg shadow-md text-center">
+      <i className="fas fa-calendar-check text-3xl text-[#846d47]"></i>
+      <h3 className="text-xl font-bold mt-4">Possession</h3>
+      <p className="text-gray-500">Dec 2025</p>
+    </div>
+  </div>
 
 
         {/* Embed Google Map */}
