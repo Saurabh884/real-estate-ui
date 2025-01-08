@@ -3,10 +3,67 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Accordion from "./components/common/accordian";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+
+
+
+const CustomPrevArrow = (props) => {
+  const { className, style, onClick } = props;
+  return (
+      <div
+          className={className}
+          style={{
+              ...style,
+              display: "block",
+              background: "black",
+              borderRadius: "50%",
+              
+              zIndex: 1, // Ensure arrows are above the images
+          }}
+          onClick={onClick}
+      />
+  );
+};
+
+const CustomNextArrow = (props) => {
+  const { className, style, onClick } = props;
+  return (
+      <div
+          className={className}
+          style={{
+              ...style,
+              display: "block",
+              background: "black",
+              borderRadius: "50%",
+              zIndex:1
+          }}
+          onClick={onClick}
+      />
+  );
+};
 
 export default function Home() {
   const { register, handleSubmit, reset } = useForm();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const carouselSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    prevArrow: <CustomPrevArrow />,
+    nextArrow: <CustomNextArrow />,
+    responsive: [
+        {
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 1,
+            },
+        },
+    ],
+};
 
   const accordionData = [
     {
@@ -180,7 +237,7 @@ export default function Home() {
       </section>
 
       {/* Project Details Section */}
-      <section className="py-16 px-6 md:px-12 shadow-md bg-gray-50">
+      <section className="py-8 px-6 md:px-12 shadow-md bg-gray-50">
       <h2 className="text-3xl font-bold text-center">Project Details</h2>
   <p className="mt-4 text-gray-600 text-center max-w-2xl mx-auto">
     This project features luxury apartments with premium facilities and modern architecture located in the heart of Bangalore.
@@ -209,9 +266,17 @@ export default function Home() {
   </div>
 
 
-        {/* Embed Google Map */}
-        <div className="mt-8">
-  <h3 className="text-xl font-bold text-center">Project Location</h3>
+     
+     
+
+
+      </section>
+
+      <div>
+
+      <section className="py-8 px-6 md:px-12 bg-gray-50"> 
+        {/* <h3 className="text-xl font-bold text-center">Project Location</h3> */}
+        <h2 className="text-3xl font-bold text-center">Project Location</h2>
   <div className="mt-4 flex justify-center">
     <iframe
       src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1943.977813132166!2d77.750849!3d12.97469!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae0e075e402bb3%3A0xd81374e18fa7a9a7!2sPrestige%20White%20Meadows!5e0!3m2!1sen!2sus!4v1736242543318!5m2!1sen!2sus"
@@ -224,11 +289,32 @@ export default function Home() {
       className="rounded-lg shadow-md"
     ></iframe>
   </div>
-</div>
+        </section>
+        
 
-      </section>
+            {/* Gallery Section */}
+            <section className="py-8 px-6 md:px-12 bg-gray-50">
+            <h2 className="text-3xl font-bold text-center">Gallery</h2>
+                <Slider {...carouselSettings}>
+                    {Array(6).fill(0).map((_, index) => (
+                        <div key={index} style={{ padding: '0 10px' }}>
+                            <img
+                                src="/hero-bg.jpg"
+                                alt={`Gallery Image ${index + 1}`}
+                                style={{
+                                    width: '100%',
+                                    height: 'auto',
+                                    borderRadius: '8px',
+                                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+                                }}
+                            />
+                        </div>
+                    ))}
+                </Slider>
+            </section>
+        </div>
 
-      <section className="py-16 px-6 md:px-12 bg-gray-50">
+      <section className="py-8 px-6 md:px-12 bg-gray-50">
         <h2 className="text-3xl font-bold text-center">Specifications</h2>
         <div className="mt-8">
           {accordionData.map((item, index) => (
@@ -240,7 +326,7 @@ export default function Home() {
       
 
       {/* Amenities Section */}
-      <section className="py-16 px-6 md:px-12 bg-gray-50">
+      <section className="py-8 px-6 md:px-12 bg-gray-50">
   <h2 className="text-3xl font-bold text-center">Amenities</h2>
   <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
     <div className="bg-white p-6 rounded-lg shadow-md text-center">
@@ -276,7 +362,7 @@ export default function Home() {
       {/* Contact Form */}
       <section
         id="contact"
-        className="py-16 px-6 md:px-12 bg-[#846d47] text-white"
+        className="py-8 px-6 md:px-12 bg-[#846d47] text-white"
       >
         <h2 className="text-3xl font-bold text-center">Get in Touch</h2>
         <p className="mt-4 text-center">
@@ -313,11 +399,7 @@ export default function Home() {
         </form>
       </section>
 
-      {/* Footer */}
-      {/* <footer className="py-6 bg-black text-white text-center">
-        <p>© {new Date().getFullYear()} Real Estate Project. All Rights Reserved.</p>
-      </footer> */}
-      {/* Footer */}
+   
       <footer className="bg-gray-900 text-white py-10">
   <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-between">
     <div className="w-full sm:w-1/3 mb-8 sm:mb-0">
